@@ -1,0 +1,15 @@
+extends nav
+block append css
+  style
+    include ../static/theme.css
+
+block content
+  .container
+    h1 LANGUAGE
+    .gallery
+      each theme in themes
+        a(href=theme.link)
+          figure.card
+            img(src=theme.image, alt=theme.name)
+            .base
+              figcaption= theme.name

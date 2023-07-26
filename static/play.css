@@ -1,0 +1,187 @@
+.container1{
+    min-height:71vh ;
+    font-family: 'Inter', sans-serif;
+    color: bisque;
+    display: flex;
+    flex-direction: column;
+    grid-row-end: span 2;
+    max-width: 560px;
+}
+.bottom{
+    position: static;
+    height: 100px;
+    background-color:rgb(19, 19, 19); 
+    /* bottom: 0; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: bisque;
+    flex-direction: column;
+}
+#myProgressbar{
+    width: 73vw;
+    /* text-align: center; */
+}
+.icons{
+    margin-top: 15px;
+}
+/* .icons i:hover{
+
+} */
+
+.icons i{
+    cursor: pointer;
+    margin-left:10px ;
+    margin-right:10px ;
+}
+
+.songitem{
+    height: 70px;
+    display: flex;
+    background-color:rgb(19, 19, 19);
+    border-radius: 5px;
+    width:100%;
+    color: #f5f5dc;
+    margin-bottom: 8px;
+    justify-content: space-between;
+    align-items: center;
+}
+.songitem img{
+    width: 50px;
+    margin:0 10px ;
+    border-radius: 25px;
+}
+.songlistplay i{
+    margin-left: 15px;
+}
+.songlistplay{
+    padding-right:15px;
+}
+.songlistt h1{
+    margin-bottom:25px ;
+}
+.songlistplay i{
+    cursor: pointer;
+}
+/* .songname img{
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+.songname{
+    position: absolute;
+    left: 0px;
+    margin-top: 26px;
+    margin-left: 16vw;
+} */
+.songinfo{
+    /* position: relative; */
+    /* justify-content: end; */
+    display: grid;
+    row-gap: 10px;
+    right: 0px;
+    width: 200px;
+
+}
+.containers{
+    width: 70%;
+    margin: 23px auto;
+    background-color: rgb(34, 34, 34);
+    border-radius: 13px;
+    padding: 25px;
+    display: grid;
+    grid-template-columns: auto  auto;
+    grid-gap: 20px 50px;
+}
+.container2{
+    width: 100%;
+    /* background-color: #131313; */
+    padding: 20px;
+    border-radius: 5px;
+    margin-right: 120px;
+    
+}
+.gridsongpic{
+    /* margin-left: 20%; */
+    text-align: center;
+    /* border: #D4DCD7; */
+    min-height: 350px;
+
+    
+    
+}
+.gridsongpic img{
+    background-color: #131313;
+    width: 400px;
+    height: 350px;
+    border-radius: 10px;
+}
+.gridsonginfo p{
+    margin-top: 10px;
+    background-color: #131313;
+    padding: 10px;
+    border-radius: 8px;
+    color: bisque;
+    /* height: 100px; */
+    min-height: 130px;
+    max-height: 200px;
+    margin-left: 60px;
+    
+}
+.gridsonginfo{
+    max-width: 500px;
+    
+}
+#masterPlay:hover{
+    content: url("img/playchange.png");
+    
+}
+.navv input{
+    background-color:#222222;
+    border-color: #222222;
+    border-radius: 6px;
+    width: 250px;
+    height: 20px;
+    padding: 8px;
+    outline: none;
+    font-size: large;
+    color: bisque;
+    margin-left: 834px;
+    margin-top: 11px;
+}
+.navv input:hover{
+    border-color: rgb(68, 244, 160);
+}
+.songitem .splay{
+    height: 20px;
+    width: 15px;
+}
+.songitem>span>p{
+    padding-left: 10px;
+    padding-right: 7px;
+    display: block;
+    width: 327px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.login{
+    padding-left: 50px;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+/* .timestamp>i>img{
+    
+} */
+.play-btn img {
+    /* Set the height and width of the image */
+    width: 20px;
+    height: 15px;
+    /* Add this to ensure the image is not resized or stretched */
+    object-fit: cover;
+  }
+.songitem i img{
+    width: 16px;
+    height: 25px;
+}

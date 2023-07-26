@@ -1,0 +1,39 @@
+extends nav
+
+block head
+    script(src='../index.js')
+
+block append css
+    style
+      include ../static/play.css
+
+block content
+    .containers
+        .container1
+            .songlistt
+                h1 #{albumname}
+            each song in songs
+                .songitem
+                    img(src=`${song.image}` alt=`${song.id}`)
+                    span.songname
+                        p #{song.name}
+                    span.songlistplay
+                        span.timestamp 
+                            h3 #{song.time}
+                        i
+                            img(id=`${song.id}.splay` class='play-btn' src='img/small play.png' alt='splay')
+        .container2
+            .gridsongpic
+                img(src='img/logo1.png' alt='song pic')
+            .gridsonginfo
+                p(id='songName')
+
+    .bottom
+        input#myProgressbar(type='range' name='range' min='0' value='0' max='100')
+        .icons
+            i#masterBack.backchange
+                img(src='img/BACKWARD.png' alt='play')
+            i#masterPlay.playchange
+                img(src='img/playlogo.png' alt='play')
+            i#masterFront.frontchange
+                img(src='img/FORWARD.png' alt='play')

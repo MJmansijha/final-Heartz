@@ -1,0 +1,23 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title HEARTZ
+  block head
+  style
+      include ../static/nav.css
+  block css
+nav.navv
+  ul
+    a(href='/theme')
+      li.brand
+        img(src='/img/logo1.png' alt='logo')
+        | Heartz
+    li
+      input(type='text' value='' placeholder='search')
+    a(href='/login')
+      li.login login
+body 
+  block content
+
+

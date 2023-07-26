@@ -1,0 +1,16 @@
+extends nav
+block append css
+    style
+      include ../static/login.css
+block content
+    .register
+        .register1
+            h2 LOGIN
+            form
+            .form-group
+                input#yourname.form-control(type='text' placeholder='Enter your user name')
+            .form-group
+                input#yourpassword.form-control(type='password' placeholder='Enter your password')
+            button.btn.btn-primary(type='submit') Submit
+            p
+                a(href='/register') &quot;Don&apos;t have an account yet? Sign Up        

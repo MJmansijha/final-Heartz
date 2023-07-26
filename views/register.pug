@@ -1,0 +1,18 @@
+extends nav
+block append css
+    style
+      include ../static/register.css
+block content
+    .register
+        .register1
+            h2 CREATE ACCOUNT
+            form
+            .form-group
+                input#yourname.form-control(type='text' placeholder='Enter your user name')
+            .form-group
+                input#youremail.form-control(type='email' placeholder='Enter your email')
+            .form-group
+                input#yourpassword.form-control(type='password' placeholder='Enter your password')
+            button.btn.btn-primary(type='submit') Submit
+            p
+                a(href='/login') Already have an account? Login here        

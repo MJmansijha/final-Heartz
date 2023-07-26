@@ -1,0 +1,77 @@
+Using a video as a preloader can be an interesting and visually appealing way to engage users while the main content is loading. Here's how you can create a preloader with a video background in your Pug template:
+
+    Create the Video Preloader HTML/CSS:
+
+    First, create the HTML and CSS for the video preloader. You'll need to prepare a video file (e.g., preload-video.mp4) and place it in a folder named "videos" within your project directory.
+
+    pug
+
+// preloader.pug
+.video-preloader-container
+  video#preload-video(autoplay loop muted playsinline)
+    source(src='/videos/preload-video.mp4' type='video/mp4')
+
+css
+
+/* preloader.css */
+.video-preloader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+
+#preload-video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+Include the Video Preloader CSS in your Pug template:
+
+Include the preloader.css in your Pug template:
+
+pug
+
+// your_template.pug
+doctype html
+html
+  head
+    // Your head content here
+    link(rel='stylesheet' href='preloader.css')
+  body
+    include preloader  // Include the preloader.pug file here
+    // Your content goes here
+    // ...
+
+Add JavaScript to Hide the Preloader:
+
+To hide the video preloader once the content is loaded, use the loadeddata event on the video element. This event is triggered when the video has loaded its first frame and is ready to play.
+
+pug
+
+    // your_template.pug
+    doctype html
+    html
+      head
+        // Your head content here
+        link(rel='stylesheet' href='preloader.css')
+        script.
+          document.addEventListener('DOMContentLoaded', function() {
+            // Hide the preloader once the video has loaded and is ready to play
+            var preloadVideo = document.getElementById('preload-video');
+            preloadVideo.addEventListener('loadeddata', function() {
+              var videoPreloader = document.querySelector('.video-preloader-container');
+              videoPreloader.style.display = 'none';
+            });
+          });
+      body
+        include preloader  // Include the preloader.pug file here
+        // Your content goes here
+        // ...
+
+With the above steps, you'll have a preloader with a video background that automatically plays and loops while the main content is loading. Once the video has loaded and is ready to play, the preloader will be hidden, and the main content will become visible.
+
+Ensure that the video file (preload-video.mp4) is accessible and located in the "videos" folder relative to your Pug template. Also, consider using other video formats (e.g., WebM, Ogg) to ensure compatibility across different browsers.
