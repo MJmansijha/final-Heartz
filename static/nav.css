@@ -47,14 +47,14 @@ nav ul{
     cursor: pointer;
 }
 
-.container1{
-    min-height:71vh ;
+.container1 {
+    min-height: 71vh;
     font-family: 'Inter', sans-serif;
     color: bisque;
     display: flex;
     flex-direction: column;
     grid-row-end: span 2;
-}
+  }
 .bottom{
     position: static;
     height: 100px;

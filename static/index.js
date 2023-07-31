@@ -1,34 +1,33 @@
-// index.js
-
+// const songs = require('./songs');
 const songs = [
-  { id: 1, name: "APNA BANALE", image: "img/logo2.png", time: "05:00", audioUrl: "APNABANALE.mp3" },
-  { id: 2, name: "Nazm Nazm", image: "img/logo1.png", audioUrl: "baby.mp3" },
-  { id: 3, name: "Phir Bhi Tumko Chaahunga", image: "", audioUrl: "path/to/song1.mp3" },
-  { id: 4, name: "Tu Hai To Mujhe Fir Aur Kya Chahiye", image: "", audioUrl: "path/to/song1.mp3" },
-  { id: 5, name: "Tum Hi Ho", image: "", audioUrl: "path/to/song1.mp3" },
+  { id: 1, name: "APNA BANALE", image:"img/logo2.png", time:"05:00", theme:"bollywood", releasedate:"", malesinger:"", felmalesinger:"", audioUrl: "APNABANALE.mp3"},
+  { id: 2, name: "Nazm Nazm", image: "img/logo1.png", time:"05:00", theme:"bollywood", releasedate:"", malesinger:"", felmalesinger:"", audioUrl: "baby.mp3"},
+  { id: 3, name: "Phir Bhi Tumko Chaahunga", image: "", time:"05:00", theme:"bollywood", releasedate:"", malesinger:"", felmalesinger:"", audioUrl: "APNABANALE.mp3"},
+  { id: 4, name: "Tu Hai To Mujhe Fir Aur Kya Chahiye", image: "", time:"05:00", theme:"bollywood", releasedate:"", malesinger:"", felmalesinger:"", audioUrl: "APNABANALE.mp3"},
+  { id: 5, name: "Tum Hi Ho", image: "", time:"05:00", theme:"bollywood", releasedate:"", malesinger:"", felmalesinger:"", audioUrl: "APNABANALE.mp3"},
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
-  const songNameElement = document.getElementById('songName');
+  const songInfoElement = document.getElementById('songInfo');
   const gridsongpicElement = document.querySelector('.gridsongpic img');
   const progressBar = document.getElementById("myProgressbar");
   let isSeeking = false;
 
-  // Function to update the song name and image in container2
-  function updateSongInfo(songName, imageUrl) {
-    const formattedSongName = "name: " + songName;
-    songNameElement.textContent = formattedSongName;
-    gridsongpicElement.src = imageUrl;
+  // Function to update the song details in container2
+  function updateSongInfo(song) {
+    const formattedSongInfo = `Name: ${song.name}\nTime: ${song.time}\nTheme: ${song.theme}\nRelease Date: ${song.releasedate}\nMale Singer: ${song.malesinger}\nFemale Singer: ${song.femalesinger}`;
+    songInfoElement.textContent = formattedSongInfo;
+    gridsongpicElement.src = song.image;
   }
 
   // Add an event listener to each play button
   songs.forEach(song => {
     const playButton = document.getElementById(`${song.id}.splay`);
     playButton.addEventListener('click', () => {
-      updateSongInfo(song.name, song.image);
+      updateSongInfo(song);
 
       // Optional: Scroll to the top of the container2 when a play button is clicked.
-      gridsonginfoElement.scrollTop = 0;
+      songInfoElement.scrollTop = 0;
 
       // Here you can also add code to play the selected song.
       // For example, you could trigger an audio player to play the song.
@@ -44,8 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function loadSong() {
     const currentSong = songs[currentSongIndex];
     audio.src = currentSong.audioUrl;
-    songNameElement.textContent = currentSong.name;
-    gridsongpicElement.src = currentSong.image;
+    updateSongInfo(currentSong);
   }
 
   function playSong() {

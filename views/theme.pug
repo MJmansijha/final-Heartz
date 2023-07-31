@@ -6,6 +6,9 @@ block append css
 block content
   .container
     h1 LANGUAGE
+    .add
+      button(type='button')
+        a(href='/addthemes') Add Themes
     .gallery
       each theme in themes
         a(href=theme.link)

@@ -98,7 +98,13 @@
     padding: 20px;
     border-radius: 5px;
     margin-right: 120px;
-    
+}
+#songInfo{
+    padding-left: 22px;
+}
+.gridsonginfo p{
+    margin:5px ;
+    font-family: 'Inter', sans-serif;
 }
 .gridsongpic{
     /* margin-left: 20%; */
@@ -185,3 +191,22 @@ a{
     width: 16px;
     height: 25px;
 }
+.add button{
+    margin-bottom: 10px;
+    padding: 10px;
+    height: 50px;
+    width: 80px;
+    background-color:  #d616f6;
+    border-radius: 20px;
+    font-weight: bold;
+    border:4px solid #c714c8;
+    padding: 5px; 
+    margin-top: 10px;
+}
+.add button:hover
+{
+    border:4px solid rgb(68, 244, 160);
+}
+.gridsonginfo {
+    white-space: pre-line; /* Preserve line breaks in the text */
+  }

@@ -6,11 +6,12 @@ block content
     .register
         .register1
             h2 LOGIN
-            form
+            form(action='/' method='post')
             .form-group
-                input#yourname.form-control(type='text' placeholder='Enter your user name')
+                input#yourname.form-control(type='text' name="name" placeholder='Enter your user name')
             .form-group
-                input#yourpassword.form-control(type='password' placeholder='Enter your password')
-            button.btn.btn-primary(type='submit') Submit
+                input#yourpassword.form-control(type='password' name="password" placeholder='Enter your password')
+                br
+                input.sub(type='submit') 
             p
                 a(href='/register') &quot;Don&apos;t have an account yet? Sign Up        

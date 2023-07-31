@@ -2,10 +2,11 @@ extends nav
 
 block head
     script(src='../index.js')
+    script(src='../songs.js')
 
 block append css
     style
-      include ../static/play.css
+        include ../static/play.css
 
 block content
     .containers
@@ -22,12 +23,14 @@ block content
                             h3 #{song.time}
                         i
                             img(id=`${song.id}.splay` class='play-btn' src='img/small play.png' alt='splay')
+            .add
+                button(type='button')
+                    a(href='/addsongs') Add Songs
         .container2
             .gridsongpic
                 img(src='img/logo1.png' alt='song pic')
             .gridsonginfo
-                p(id='songName')
-
+                p#songInfo
     .bottom
         input#myProgressbar(type='range' name='range' min='0' value='0' max='100')
         .icons

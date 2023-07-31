@@ -1,0 +1,18 @@
+extends nav
+
+block append css
+  style
+    include ../static/addthemesong.css
+
+block content
+    .cont
+        div
+            h1 Add a New Theme
+            form#themeForm
+                input#name(type='text' name='name' placeholder='Theme Name' required='')
+                br
+                input#image(type='text' name='image' placeholder='Image URL' required='')
+                br
+                input#link(type='text' name='link' placeholder='Link' required='')
+                br
+                button.addtheme(type='submit') Add Theme

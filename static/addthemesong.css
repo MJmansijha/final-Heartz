@@ -1,0 +1,62 @@
+.cont {
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+    height: 100vh; /* Make the div full height of the viewport */
+    margin: 0;
+    background-color: #0c0c0c;
+    color: bisque;
+  }
+  
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Align content in the center horizontally */
+    text-align: left; /* Align text inside div to the left */
+    background-color: #131313;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-top: 90px;
+    height: 1000px;
+    width: 50vh;
+  }
+  
+  h1 {
+    margin-top: 10px; /* Add some margin at the top of the h1 element */
+    margin-bottom: 20px; /* Add some margin at the bottom of the h1 element */
+  }
+  
+  .addtheme {
+    margin: 10px;
+    text-decoration: none;
+    margin-bottom: 5px; /* Add margin between input fields and button */
+    background-color: bisque;
+    text-decoration: none;
+    border-radius: 4px;
+    margin: 10px;
+    outline: none;
+    height: 4vh;
+    color: rgb(30, 29, 29);
+  }
+  
+  input {
+    margin-bottom: 5px; /* Add margin between input fields and button */
+    background-color: bisque;
+    text-decoration: none;
+    border-radius: 4px;
+    margin: 10px;
+    width: 40vh;
+    outline: none;
+    height: 4vh;
+    color: #131313;
+    padding: 10px;
+  }
+  button{
+    padding: 5px;
+  }
+  input:hover{
+    border: 5px solid rgb(68, 244, 160);
+  }
+  
