@@ -27,8 +27,11 @@ app.use(express.static(path.join(__dirname, 'static')));
 
 // Define routes for each theme
 // render the template for each theme
-app.use('/register', (req, res) => {
+app.get('/register', (req, res) => {
   res.status(200).render('register');
+});
+app.get('/login', (req, res) => {
+  res.status(200).render('login');
 });
 app.post('/register', async (req, res) => {
   const { name, password } = req.body;
@@ -40,16 +43,13 @@ app.post('/register', async (req, res) => {
     // Save the user to the database
     await newUser.save();
 
-    res.redirect('/'); // Redirect to login
+    res.redirect('/login'); // Redirect to login
   } catch (err) {
     console.error('Error saving user:', err.message);
     res.status(500).send('Error registering user');
   }
 });
-app.use('/login', (req, res) => {
-  res.status(200).render('login');
-});
-app.use('/home', (req, res) => {
+app.get('/home', (req, res) => {
   res.status(200).render('theme', { themes });
 });
 app.post('/login', async (req, res) => {
@@ -76,33 +76,33 @@ app.post('/login', async (req, res) => {
     res.status(500).send('Error logging in');
   }
 });
-app.use('/bollywood', (req, res) => {
+app.get('/bollywood', (req, res) => {
   res.status(200).render('play', { songs: BOLLYWOOD, albumname });
 });
 
-app.use('/english', (req, res) => {
+app.get('/english', (req, res) => {
   res.status(200).render('play', { songs: ENGLISH, albumname });
 });
 
-app.use('/bhojpuri', (req, res) => {
+app.get('/bhojpuri', (req, res) => {
   res.status(200).render('play', { songs: BHOJPURI, albumname });
 });
 
-app.use('/punjabi', (req, res) => {
+app.get('/punjabi', (req, res) => {
   res.status(200).render('play', { songs: PUNJABI, albumname });
 });
 
-app.use('/kpop', (req, res) => {
+app.get('/kpop', (req, res) => {
   res.status(200).render('play', { songs: KPOP, albumname });
 });
 
-app.use('/anime', (req, res) => {
+app.get('/anime', (req, res) => {
   res.status(200).render('play', { songs: ANIME, albumname });
 });
-app.use('/addthemes', (req, res) => {
+app.get('/addthemes', (req, res) => {
   res.status(200).render('addtheme');
 });
-app.use('/addsongs', (req, res) => {
+app.get('/addsongs', (req, res) => {
   res.status(200).render('addsong');
 });
 // Listen to the port
