@@ -3,15 +3,18 @@ block append css
     style
       include ../static/register.css
 block content
-    .register
-        .register1
-            h2 CREATE ACCOUNT
-            form(action='/register' method='post')
-            .form-group
-                input#yourname.form-control(type='text' name="name" placeholder='Enter your user name')
-            .form-group
-                input#yourpassword.form-control(type='password' name="password" placeholder='Enter your password')
-                br
-                input.btn.btn-primary(type='submit')
-            p
-                a(href='/') Already have an account? Login here        
+    block content
+        .register
+            .register1
+                h2 CREATE ACCOUNT
+                form(action='/register' method='post')
+                    .form-group
+                        label(for='yourname') 
+                        input#yourname.form-control(type='text' name='name' placeholder='Enter your user name' required)
+                    .form-group
+                        label(for='yourpassword') 
+                        input#yourpassword.form-control(type='password' name='password' placeholder='Enter your password' required)
+                    br
+                    input.btn.btn-primary(type='submit' value='Submit')
+                p
+                    a(href='/login') Already have an account? Login here
