@@ -4,7 +4,9 @@ const app = express();
 const themes = require('./themes');
 const User = require('./static/models/userdb');
 const port = 3000;
+const bodyParser = require('body-parser');
 app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 const {
   BOLLYWOOD,
   ENGLISH,
