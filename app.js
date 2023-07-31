@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'static')));
 app.get('/register', (req, res) => {
   res.status(200).render('register');
 });
-app.get('/login', (req, res) => {
+app.get('/', (req, res) => {
   res.status(200).render('login');
 });
 app.post('/register', async (req, res) => {
@@ -43,7 +43,7 @@ app.post('/register', async (req, res) => {
     // Save the user to the database
     await newUser.save();
 
-    res.redirect('/login'); // Redirect to login
+    res.redirect('/'); // Redirect to login
   } catch (err) {
     console.error('Error saving user:', err.message);
     res.status(500).send('Error registering user');
@@ -70,12 +70,13 @@ app.post('/login', async (req, res) => {
 
     // Successful login, you can implement session handling or JWT authentication here
 
-    res.redirect('/home'); 
+    res.redirect('/home');
   } catch (err) {
     console.error('Error logging in:', err.message);
     res.status(500).send('Error logging in');
   }
 });
+
 app.get('/bollywood', (req, res) => {
   res.status(200).render('play', { songs: BOLLYWOOD, albumname });
 });

@@ -202,8 +202,13 @@ nav ul{
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-.login{
+.logout{
     padding-left: 50px;
+    margin-left: 1331px;
+}
+.logout:hover{
+    font-weight: bold;
+    color:rgb(68, 244, 160);
 }
 a{
     text-decoration: none;
