@@ -24,13 +24,14 @@ block content
                         i
                             img(id=`${song.id}.splay` class='play-btn' src='img/small play.png' alt='splay')
             .add
+                - const themeLink = `/${albumname}`; 
                 button(type='button')
-                    a(href='/addsongs') Add Songs
+                    a(href=`/addsong${themeLink}`) Add Songs
         .container2
             .gridsongpic
                 img(src='img/logo1.png' alt='song pic')
             .gridsonginfo
-                p#songInfo
+                p#songInfo   
     .bottom
         input#myProgressbar(type='range' name='range' min='0' value='0' max='100')
         .icons

@@ -1,17 +1,9 @@
-// const songs = require('./songs');
-const songs = [
-  { id: 1, name: "APNA BANALE", image:"img/logo2.png", time:"05:00", theme:"bollywood", releasedate:"", malesinger:"", felmalesinger:"", audioUrl: "APNABANALE.mp3"},
-  { id: 2, name: "Nazm Nazm", image: "img/logo1.png", time:"05:00", theme:"bollywood", releasedate:"", malesinger:"", felmalesinger:"", audioUrl: "baby.mp3"},
-  { id: 3, name: "Phir Bhi Tumko Chaahunga", image: "", time:"05:00", theme:"bollywood", releasedate:"", malesinger:"", felmalesinger:"", audioUrl: "APNABANALE.mp3"},
-  { id: 4, name: "Tu Hai To Mujhe Fir Aur Kya Chahiye", image: "", time:"05:00", theme:"bollywood", releasedate:"", malesinger:"", felmalesinger:"", audioUrl: "APNABANALE.mp3"},
-  { id: 5, name: "Tum Hi Ho", image: "", time:"05:00", theme:"bollywood", releasedate:"", malesinger:"", felmalesinger:"", audioUrl: "APNABANALE.mp3"},
-];
-
 document.addEventListener('DOMContentLoaded', () => {
   const songInfoElement = document.getElementById('songInfo');
   const gridsongpicElement = document.querySelector('.gridsongpic img');
   const progressBar = document.getElementById("myProgressbar");
   let isSeeking = false;
+  const songs = []; // Initialize an empty array for storing the fetched songs
 
   // Function to update the song details in container2
   function updateSongInfo(song) {
@@ -20,19 +12,38 @@ document.addEventListener('DOMContentLoaded', () => {
     gridsongpicElement.src = song.image;
   }
 
-  // Add an event listener to each play button
-  songs.forEach(song => {
-    const playButton = document.getElementById(`${song.id}.splay`);
-    playButton.addEventListener('click', () => {
-      updateSongInfo(song);
+  // Function to fetch data from the server and update the songs array
+  async function fetchSongs() {
+    try {
+      const response = await fetch('api/:theme'); // Replace '/songinfs' with the correct API endpoint URL
+      // const response = await fetch('api/:theme'); // Replace '/songinfs' with the correct API endpoint URL
+      const data = await response.json();
+      songs.push(...data); // Add the fetched data to the songs array
 
-      // Optional: Scroll to the top of the container2 when a play button is clicked.
-      songInfoElement.scrollTop = 0;
+      // Add event listeners to the play buttons after data is fetched
+      songs.forEach(song => {
+        const playButton = document.getElementById(`${song.id}.splay`);
+        playButton.addEventListener('click', () => {
+          updateSongInfo(song);
+          playSong(song);
 
-      // Here you can also add code to play the selected song.
-      // For example, you could trigger an audio player to play the song.
-    });
-  });
+          // Optional: Scroll to the top of the container2 when a play button is clicked.
+          songInfoElement.scrollTop = 0;
+        });
+      });
+
+      // Load the first song on page load after data is fetched
+      loadSong();
+    } catch (error) {
+      console.error('Error fetching songs:', error);
+    }
+  }
+
+  // Function to play the selected song
+  function playSong(song) {
+    audio.src = song.audioUrl;
+    audio.play();
+  }
 
   const backwardBtn = document.getElementById("masterBack");
   const playBtn = document.getElementById("masterPlay");
@@ -126,5 +137,5 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Load the first song on page load
-  loadSong();
+  fetchSongs();
 });
