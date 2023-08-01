@@ -8,24 +8,23 @@ block content
     .cont
         div
             h1 Add a New Song
-            form#themeForm
-                input#songid(type="number" name='id' placeholder='Song id' required='')
+            form#themeForm(action="/addsongs" method="post")
+                input#songid(type="number" name="id" placeholder="Song id" required="")
                 br
-                input#name(type='text' name='name' placeholder='Song Name' required='')
+                input#name(type="text" name="name" placeholder="Song Name" required="")
                 br
-                input#image(type='text' name='image' placeholder='Image location' required='')
+                input#image(type="text" name="image" placeholder="Image location" required="")
                 br
-                input#songlength(type='text' name='time' placeholder='Enter duration' required='')
+                input#songlength(type="text" name="time" placeholder="Enter duration" required="")
                 br
-                input#songlink(type='text' name='audiourl' placeholder='Song location' required='')
+                input#songlink(type="text" name="audioUrl" placeholder="Song location" required="")
                 br
-                input#songtheme(type='text' name='songtheme' placeholder='Song theme' required='')
+                input#songtheme(type="text" name="theme" placeholder="Song theme" required="")
                 br
-                input#songreleasedate(type='text' name='song release date' placeholder='Song release date' required='')
+                input#songreleasedate(type="text" name="releasedate" placeholder="Song release date" required="")
                 br
-                input#malesinger(type='text' name='male singer' placeholder='Song male singer' required='')
+                input#malesinger(type="text" name="malesinger" placeholder="Song male singer" required="")
                 br
-                input#femalesinger(type='text' name='female singer' placeholder='Song female singer' required='')
+                input#femalesinger(type="text" name="femalesinger" placeholder="Song female singer" required="")
                 br
-                button.addtheme(type='submit') Add Theme
-
+                input.addtheme(type="submit" value="Submit")
