@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Function to fetch data from the server and update the songs array
   async function fetchSongs() {
     try {
-      const response = await fetch('api/:theme'); // Replace '/songinfs' with the correct API endpoint URL
+      const response = await fetch('api/english'); // Replace '/songinfs' with the correct API endpoint URL
       // const response = await fetch('api/:theme'); // Replace '/songinfs' with the correct API endpoint URL
       const data = await response.json();
       songs.push(...data); // Add the fetched data to the songs array
