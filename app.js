@@ -4,9 +4,8 @@ const app = express();
 const User = require('./static/models/userdb');
 const ThemeInf = require('./static/models/themes');
 const SongInf = require('./static/models/songs');
-const port = 3000;
+const port = 4000;
 const bodyParser = require('body-parser');
-
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -155,3 +154,4 @@ async function renderThemePage(req, res, themeName) {
 app.listen(port, () => {
   console.log(`app is listening on port ${port}`);
 });
+
