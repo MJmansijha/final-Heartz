@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const songInfoElement = document.getElementById('songInfo');
   const gridsongpicElement = document.querySelector('.gridsongpic img');
   const progressBar = document.getElementById("myProgressbar");
-  const deleteButtons = document.querySelectorAll('.song-overlay form button');
+  const removeButtons = document.querySelectorAll('.remove-song');
   let isSeeking = false;
   const songs = []; // Initialize an empty array for storing the fetched songs
 
@@ -82,24 +82,26 @@ document.addEventListener('DOMContentLoaded', () => {
     songInfoElement.textContent = formattedSongInfo;
     gridsongpicElement.src = song.image;
   }
+  
+  removeButtons.forEach((button) => {
+    button.addEventListener('click', async (event) => {
+      const songId = button.getAttribute('data-song-id');
+  
+      try {
+        // Send a POST request to the server to remove the song
+        await fetch(`/remove-song/${songId}`, {
+          method: 'POST',
+        });
+  
+        // Refresh the page after successful removal
+        window.location.reload();
+      } catch (err) {
+        console.error('Error removing song:', err.message);
+        // Handle the error if needed
+      }
+    });
+  });
 
-  // deleteButtons.forEach((button) => {
-  //   button.addEventListener('click', async (event) => {
-  //     event.preventDefault();
-  //     const songItem = event.target.parentElement;
-  //     const songId = songItem.querySelector('img').id;
-
-  //     try {
-  //       // Send a delete request to the server to delete the song
-  //       await fetch(`/deleteSong/${albumname}/${songId}`, { method: 'POST' });
-  //       // Optionally, you can reload the page to update the song list
-  //       window.location.reload();
-  //     } catch (err) {
-  //       console.error('Error deleting song:', err);
-  //       // Handle the error as needed
-  //     }
-  //   });
-  // });
 
   // Function to play the selected song
   function playSong(song) {

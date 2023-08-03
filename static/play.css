@@ -210,51 +210,17 @@ a{
 .gridsonginfo {
     white-space: pre-line; /* Preserve line breaks in the text */
   }
-/* play.css */
-
-/* .songitem {
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
-  
-  .song-img-container {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    overflow: hidden;
+  .remove-song{
+    border-style: none;
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: 10px;
     margin-right: 10px;
+    width: 25px;
+    background-color: bisque;
   }
-  
-  .song-img {
-    width: 100%;
-    height: 100%;
-    transition: transform 0.3s;
+  .remove-song:hover{
+    font-weight:bolder;
+    background-color: #cb14d4;
+    color: #45c217;
   }
-  
-  .song-overlay {
-    position: absolute;
-    top: 50%;
-    left: 6.8%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    font-size: 18px;
-    padding: 5px 10px;
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  
-  .songitem:hover .song-img {
-    transform: scale(1.2);
-  }
-  
-  .songitem:hover .song-overlay {
-    opacity: 1;
-  }
-   */
-  /* Rest of your styles... */
-  
-
-  

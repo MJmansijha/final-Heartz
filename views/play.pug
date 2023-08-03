@@ -15,6 +15,7 @@ block content
                 h1 #{albumname}
             each song in songs
                 .songitem
+                    button.remove-song(type='button' data-song-id=`${song._id}`) X
                     img(src=`${song.image}` alt=`${song.id}`)
                     span.songname
                         p #{song.name}
@@ -22,7 +23,7 @@ block content
                         span.timestamp 
                             h3 #{song.time}
                         i
-                            img(id=`${song.id}.splay` class='play-btn' src='img/small play.png' alt='splay')
+                            img(id=`${song.id}.splay` class='play-btn' src='img/small play.png' alt='splay')    
             .add
                 if theme 
                     -const addSongLink = `/addsong/${theme.link}`; // Construct the add song link

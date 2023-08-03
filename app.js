@@ -154,6 +154,17 @@ app.get('/:theme', async (req, res) => {
     res.status(500).send('Error fetching theme data');
   }
 });
+app.post('/remove-song/:id', async (req, res) => {
+  const songId = req.params.id;
+  try {
+    // Find the song by its id and remove it from the database
+    await SongInf.findByIdAndRemove(songId);
+    res.redirect(req.get('referer')); // Redirect back to the same page after removal
+  } catch (err) {
+    console.error('Error removing song:', err.message);
+    res.status(500).send('Error removing song');
+  }
+});
 
 // Listen to the port
 app.listen(port, () => {
