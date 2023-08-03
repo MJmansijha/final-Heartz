@@ -4,7 +4,7 @@
   },
   "name": "ENGLISH",
   "image": "themeimg/english.jpg",
-  "link": "/english",
+  "link": "english",
   "__v": 0
 },
 {
@@ -13,7 +13,7 @@
   },
   "name": "BOLLYWOOD",
   "image": "themeimg/bollywood.jpg",
-  "link": "/bollywood",
+  "link": "bollywood",
   "__v": 0
 },
 {
@@ -22,7 +22,7 @@
   },
   "name": "BHOJPURI",
   "image": "themeimg/bhojpuri.jpg",
-  "link": "/bhojpuri",
+  "link": "bhojpuri",
   "__v": 0
 },
 {
@@ -31,7 +31,7 @@
   },
   "name": "PUNJABI",
   "image": "themeimg/punjabi.jpg",
-  "link": "/punjabi",
+  "link": "punjabi",
   "__v": 0
 },
 {
@@ -40,7 +40,7 @@
   },
   "name": "ANIME",
   "image": "themeimg/anime.jpg",
-  "link": "/anime",
+  "link": "anime",
   "__v": 0
 },
 {
@@ -49,6 +49,22 @@
   },
   "name": "KPOP",
   "image": "themeimg/kpop.jpg",
-  "link": "/kpop",
+  "link": "kpop",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64c7fedeb3b88b76698d9ece"
+  },
+  "name": "ritesh",
+  "password": "123",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64c801fd59650d293dff4ea0"
+  },
+  "name": "yo",
+  "password": "321",
   "__v": 0
 }]
