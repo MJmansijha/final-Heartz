@@ -6,6 +6,7 @@ const mongodbURI = 'mongodb://localhost:27017/Heartz';
 mongoose.connect(mongodbURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  family:4
 }).then(() => {
   console.log('Connected to MongoDB');
 }).catch(err => {
