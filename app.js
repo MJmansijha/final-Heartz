@@ -94,15 +94,24 @@ app.post('/addthemes', async (req, res) => {
   }
 });
 
-app.get('/addsong/:theme', (req, res) => {
-  const themeName = req.params.theme;
-  res.status(200).render('addsong');
+app.get('/addsong/:theme', async (req, res) => {
+  const themeLink = req.params.theme;
+  try {
+    const themeData = await ThemeInf.findOne({ link: themeLink }); // Fetch the theme data from the database using the theme link
+    if (!themeData) {
+      return res.status(404).send('Theme not found');
+    }
+    res.status(200).render('addsong', { theme: themeData }); // Pass the theme data to the addsong.pug template
+  } catch (err) {
+    console.error('Error fetching theme data:', err.message);
+    res.status(500).send('Error fetching theme data');
+  }
 });
 
 // Route to handle form submission and add a new song to the database
 
 app.post("/addsong/:theme", (req, res) => {
-  const themeName = req.params.theme;
+  const themeLink = req.params.theme;
   const { id, name, image, time, releasedate, malesinger, femalesinger, audioUrl } = req.body;
 
   const newSong = new SongInf({
@@ -110,7 +119,7 @@ app.post("/addsong/:theme", (req, res) => {
     name,
     image,
     time,
-    theme: themeName, // Use the current theme name obtained from the URL
+    theme: themeLink, // Use the theme link obtained from the URL
     releasedate,
     malesinger,
     femalesinger,
@@ -120,7 +129,7 @@ app.post("/addsong/:theme", (req, res) => {
   newSong.save()
     .then(() => {
       console.log("New song added to the database:", newSong);
-      res.redirect(`/${themeName}`); // Redirect back to the specific theme page
+      res.redirect(`/${themeLink}`); // Redirect back to the specific theme page using themeLink
     })
     .catch((err) => {
       console.error("Error adding song to the database:", err.message);
@@ -129,10 +138,6 @@ app.post("/addsong/:theme", (req, res) => {
 });
 app.get('/:theme', async (req, res) => {
   const themeName = req.params.theme;
-  await renderThemePage(req, res, themeName);
-});
-
-async function renderThemePage(req, res, themeName) {
   try {
     const themeData = await ThemeInf.findOne({ link: themeName });
 
@@ -143,12 +148,12 @@ async function renderThemePage(req, res, themeName) {
 
     const songs = await SongInf.find({ theme: themeName }); // Fetch songs for the current theme
 
-    res.status(200).render('play', { songs, albumname: themeData.name });
+    res.status(200).render('play', { songs, albumname: themeData.name, theme: themeData }); // Pass the theme object
   } catch (err) {
     console.error('Error fetching theme data:', err.message);
     res.status(500).send('Error fetching theme data');
   }
-}
+});
 
 // Listen to the port
 app.listen(port, () => {

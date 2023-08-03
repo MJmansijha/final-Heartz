@@ -83,23 +83,23 @@ document.addEventListener('DOMContentLoaded', () => {
     gridsongpicElement.src = song.image;
   }
 
-  deleteButtons.forEach((button) => {
-    button.addEventListener('click', async (event) => {
-      event.preventDefault();
-      const songItem = event.target.parentElement;
-      const songId = songItem.querySelector('img').id;
+  // deleteButtons.forEach((button) => {
+  //   button.addEventListener('click', async (event) => {
+  //     event.preventDefault();
+  //     const songItem = event.target.parentElement;
+  //     const songId = songItem.querySelector('img').id;
 
-      try {
-        // Send a delete request to the server to delete the song
-        await fetch(`/deleteSong/${albumname}/${songId}`, { method: 'POST' });
-        // Optionally, you can reload the page to update the song list
-        window.location.reload();
-      } catch (err) {
-        console.error('Error deleting song:', err);
-        // Handle the error as needed
-      }
-    });
-  });
+  //     try {
+  //       // Send a delete request to the server to delete the song
+  //       await fetch(`/deleteSong/${albumname}/${songId}`, { method: 'POST' });
+  //       // Optionally, you can reload the page to update the song list
+  //       window.location.reload();
+  //     } catch (err) {
+  //       console.error('Error deleting song:', err);
+  //       // Handle the error as needed
+  //     }
+  //   });
+  // });
 
   // Function to play the selected song
   function playSong(song) {

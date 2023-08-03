@@ -13,4 +13,20 @@
   "name": "yo",
   "password": "321",
   "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ca591262ef04dc0d5ce178"
+  },
+  "name": "ritesh",
+  "password": "1234",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ca5cebf1112fdbb7a53caa"
+  },
+  "name": "hui",
+  "password": "yoyo",
+  "__v": 0
 }]

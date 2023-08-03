@@ -24,9 +24,10 @@ block content
                         i
                             img(id=`${song.id}.splay` class='play-btn' src='img/small play.png' alt='splay')
             .add
-                - const themeLink = `/${albumname}`; 
-                button(type='button')
-                    a(href=`/addsong${themeLink}`) Add Songs
+                if theme 
+                    -const addSongLink = `/addsong/${theme.link}`; // Construct the add song link
+                    button(type='button')
+                        a(href=addSongLink) Add Songs
         .container2
             .gridsongpic
                 img(src='img/logo1.png' alt='song pic')
