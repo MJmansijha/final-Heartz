@@ -1,0 +1,60 @@
+[{
+  "_id": {
+    "$oid": "64c912084897514f197872fe"
+  },
+  "id": 2,
+  "name": "Nazm Nazm",
+  "image": "songimg/bollywood/nazamnazam.jpeg",
+  "time": "3:30",
+  "theme": "bollywood",
+  "releasedate": "2023",
+  "malesinger": "na",
+  "femalesinger": "na",
+  "audioUrl": "themesongs/bollywood/PhirBhiTumkoChaahunga.mp3",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64c912774897514f19787308"
+  },
+  "id": 1,
+  "name": "APNA BANALE",
+  "image": "songimg/bollywood/apnabanale.jpg",
+  "time": "3:25",
+  "theme": "bollywood",
+  "releasedate": "2023",
+  "malesinger": "na",
+  "femalesinger": "na",
+  "audioUrl": "themesongs/bollywood/APNABANALE.mp3",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64c9135c5d3e2d7174666353"
+  },
+  "id": 1,
+  "name": "Back To December Taylors",
+  "image": "songimg/english/backtodecembertaylors.png",
+  "time": "05:00",
+  "theme": "english",
+  "releasedate": "2023",
+  "malesinger": "na",
+  "femalesinger": "Taylor Swift",
+  "audioUrl": "themesongs/english/BackToDecemberTaylors.mp3",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64c9f7cc2c9734155e510916"
+  },
+  "id": 3,
+  "name": "Phir Bhi Tumko Chaahunga",
+  "image": "songimg/bollywood/phirbhitumkochaahunga.jpg",
+  "time": "3:25",
+  "theme": "bollywood",
+  "releasedate": "2023",
+  "malesinger": "n/a",
+  "femalesinger": "n/a",
+  "audioUrl": "themesongs/bollywood/PhirBhiTumkoChaahunga.mp3",
+  "__v": 0
+}]
