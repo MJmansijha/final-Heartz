@@ -10,6 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const albumname = "";
+// to fetch songsinfo and to render it in play.pug container 2's songinfo
 app.get('/api/:theme', async (req, res) => {
   const themeName = req.params.theme;
   try {
@@ -19,6 +20,7 @@ app.get('/api/:theme', async (req, res) => {
     res.status(500).json({ error: 'Error fetching songinfs' });
   }
 });
+
 // Set the views directory and template engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -26,10 +28,14 @@ app.set('view engine', 'pug');
 // Serve static files from the public directory
 app.use(express.static(path.join(__dirname, 'static')));
 
+
+//all the routes
+// for register
 app.get('/register', (req, res) => {
   res.status(200).render('register');
 });
 
+// for login
 app.get('/', (req, res) => {
   res.status(200).render('login');
 });
@@ -47,6 +53,7 @@ app.post('/register', async (req, res) => {
   }
 });
 
+// for home
 app.get('/home', async (req, res) => {
   try {
     const themesData = await ThemeInf.find();
@@ -78,6 +85,7 @@ app.post('/login', async (req, res) => {
   }
 });
 
+// for adding theme
 app.get('/addthemes', (req, res) => {
   res.status(200).render('addtheme');
 });
@@ -94,6 +102,8 @@ app.post('/addthemes', async (req, res) => {
   }
 });
 
+
+// for adding theme
 app.get('/addsong/:theme', async (req, res) => {
   const themeLink = req.params.theme;
   try {
@@ -109,7 +119,6 @@ app.get('/addsong/:theme', async (req, res) => {
 });
 
 // Route to handle form submission and add a new song to the database
-
 app.post("/addsong/:theme", (req, res) => {
   const themeLink = req.params.theme;
   const { id, name, image, time, releasedate, malesinger, femalesinger, audioUrl } = req.body;

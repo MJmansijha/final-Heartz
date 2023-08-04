@@ -50,9 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function fetchSongs(themeName) {
     try {
-      const response = await fetch(`api/${themeName}`); // Replace '/songinfs' with the correct API endpoint URL
+      const response = await fetch(`api/${themeName}`); 
       console.log(response)
-      // const response = await fetch('api/:theme'); // Replace '/songinfs' with the correct API endpoint URL
       const data = await response.json();
       songs.push(...data); // Add the fetched data to the songs array
 
@@ -86,7 +85,10 @@ document.addEventListener('DOMContentLoaded', () => {
   removeButtons.forEach((button) => {
     button.addEventListener('click', async (event) => {
       const songId = button.getAttribute('data-song-id');
-  
+      const shouldRemove = window.confirm("Do you want to remove this song?");
+      if (!shouldRemove) {
+        return; // If the user chooses not to remove, do nothing
+      }
       try {
         // Send a POST request to the server to remove the song
         await fetch(`/remove-song/${songId}`, {
