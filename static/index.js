@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const removeButtons = document.querySelectorAll('.remove-song');
   let isSeeking = false;
   const songs = []; // Initialize an empty array for storing the fetched songs
-
+  // it fetch songs through the api we set on app.js and add the song info in songs array in json format 
   async function fetchSongs(themeName) {
     try {
       const response = await fetch(`api/${themeName}`); 
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const playButton = document.getElementById(`${song.id}.splay`);
         playButton.addEventListener('click', () => {
           updateSongInfo(song);
-          playSong(song);
+          togglePlayPause();
 
           // Optional: Scroll to the top of the container2 when a play button is clicked.
           songInfoElement.scrollTop = 0;
@@ -73,7 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Error fetching songs:', error);
     }
   }
+  // it get last word of the url, it is use to fetch the songs in perticular theme thorugh oits url like /bollywood, /english, ect
   const themeName = window.location.pathname.split('/').pop();
+  // calling the function
   fetchSongs(themeName);
   // Function to update the song details in container2
   function updateSongInfo(song) {
@@ -81,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     songInfoElement.textContent = formattedSongInfo;
     gridsongpicElement.src = song.image;
   }
-  
+  // to remove the songs from db using its song id
   removeButtons.forEach((button) => {
     button.addEventListener('click', async (event) => {
       const songId = button.getAttribute('data-song-id');
@@ -103,7 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-
 
   // Function to play the selected song
   function playSong(song) {
