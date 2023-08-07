@@ -117,13 +117,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const forwardBtn = document.getElementById("masterFront");
   const audio = new Audio();
   let currentSongIndex = 0;
-
+  // function to get selected song through index number, get selected song, and info in container 2 through updatesonginfo 
   function loadSong() {
     const currentSong = songs[currentSongIndex];
     audio.src = currentSong.audioUrl;
     updateSongInfo(currentSong);
   }
-
+  //function to play song and change the symbol
   function playSong() {
     audio.play();
     playBtn.classList.remove("playchange");
@@ -158,6 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   backwardBtn.addEventListener("click", playPreviousSong);
   playBtn.addEventListener("click", togglePlayPause);
+  // playBtn.addEventListener("click", togglePlayPause);
   forwardBtn.addEventListener("click", playNextSong);
 
   audio.addEventListener("ended", function () {
