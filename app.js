@@ -35,7 +35,7 @@ app.get('/register', (req, res) => {
   res.status(200).render('register');
 });
 
-// for login
+// for login as first by default page
 app.get('/', (req, res) => {
   res.status(200).render('login');
 });
@@ -53,7 +53,7 @@ app.post('/register', async (req, res) => {
   }
 });
 
-// for home
+// for home render theme landing page
 app.get('/home', async (req, res) => {
   try {
     const themesData = await ThemeInf.find();
@@ -63,7 +63,7 @@ app.get('/home', async (req, res) => {
     res.status(500).send('Error fetching themes');
   }
 });
-
+// for login to get data from from and save in db
 app.post('/login', async (req, res) => {
   const { name, password } = req.body;
 
@@ -89,7 +89,7 @@ app.post('/login', async (req, res) => {
 app.get('/addthemes', (req, res) => {
   res.status(200).render('addtheme');
 });
-
+// for add new theme from add theme form
 app.post('/addthemes', async (req, res) => {
   try {
     const { name, image, link } = req.body;
@@ -103,7 +103,7 @@ app.post('/addthemes', async (req, res) => {
 });
 
 
-// for adding theme
+// for adding song in each theme from themeinfs link
 app.get('/addsong/:theme', async (req, res) => {
   const themeLink = req.params.theme;
   try {
@@ -134,7 +134,7 @@ app.post("/addsong/:theme", (req, res) => {
     femalesinger,
     audioUrl,
   });
-
+  // function to save songs in database 
   newSong.save()
     .then(() => {
       console.log("New song added to the database:", newSong);
@@ -145,6 +145,7 @@ app.post("/addsong/:theme", (req, res) => {
       res.status(500).send("Error adding song to the database");
     });
 });
+// render theme page one by one as theme from themes (database theme)
 app.get('/:theme', async (req, res) => {
   const themeName = req.params.theme;
   try {
@@ -163,6 +164,7 @@ app.get('/:theme', async (req, res) => {
     res.status(500).send('Error fetching theme data');
   }
 });
+// to remove the song by its id 
 app.post('/remove-song/:id', async (req, res) => {
   const songId = req.params.id;
   try {
